@@ -16,7 +16,7 @@ func _ready():
 func _process(delta):
 	attackTimer += delta
 	if(attackTimer > troopStats.AttackSpeed):
-		EventSystem.emit_signal("ApplyDamageToEnemy", troopStats.Attack)
+		EventSystem.emit_signal("ApplyDamageToEnemies", troopStats.Attack)
 		attackTimer = 0
 	pass
 

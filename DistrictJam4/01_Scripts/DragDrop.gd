@@ -1,11 +1,14 @@
 extends Node2D
 
 var selected = false
-var distance = 40
+var distance = 20
 var startY = 158
-var startX = 40
-var endX = 200
+var startX = 48
+var endX = 208
 var endY = 318
+
+var closestDistance
+var closestPosition
 
 func _ready():
 	pass
@@ -17,8 +20,8 @@ func _process(delta):
 
 func followMouse():
 	get_parent().position = get_global_mouse_position()
-	for x in range(startX,endX,40):
-		for y in range(startY,endY,40):
+	for x in range(startX,endX+40,40):
+		for y in range(startY,endY+40,40):
 			if get_parent().position.distance_to(Vector2(x,y)) < distance:
 				get_parent().position = Vector2(x,y)
 	pass

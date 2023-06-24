@@ -1,8 +1,31 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://03_Prefabs/TroopPrefab.tscn" type="PackedScene" id=1]
+[ext_resource path="res://04_Sprites/Map/Slot.png" type="Texture" id=2]
 
 [node name="Root" type="Node"]
+
+[node name="Slots" type="Node" parent="."]
+
+[node name="Slot" type="Sprite" parent="Slots"]
+position = Vector2( 38, 282 )
+texture = ExtResource( 2 )
+
+[node name="Slot2" type="Sprite" parent="Slots"]
+position = Vector2( 85, 282 )
+texture = ExtResource( 2 )
+
+[node name="Slot3" type="Sprite" parent="Slots"]
+position = Vector2( 133, 282 )
+texture = ExtResource( 2 )
+
+[node name="Slot4" type="Sprite" parent="Slots"]
+position = Vector2( 181, 282 )
+texture = ExtResource( 2 )
+
+[node name="Slot5" type="Sprite" parent="Slots"]
+position = Vector2( 228, 282 )
+texture = ExtResource( 2 )
 
 [node name="TroopPrefab" parent="." instance=ExtResource( 1 )]
 position = Vector2( 111, 150 )

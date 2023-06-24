@@ -8,10 +8,24 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "TroopStats",
+"language": "GDScript",
+"path": "res://01_Scripts/TroopStats.gd"
+} ]
+_global_script_class_icons={
+"TroopStats": ""
+}
+
 [application]
 
 config/name="DistrictJam4"
 config/icon="res://icon.png"
+
+[autoload]
+
+EventSystem="*res://01_Scripts/AutoLoad/EventSystem.gd"
 
 [display]
 

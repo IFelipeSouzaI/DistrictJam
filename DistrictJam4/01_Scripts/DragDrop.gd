@@ -15,7 +15,7 @@ var yHeight = 12
 onready var baseTroop = get_parent()
 
 func _ready():
-	startPosition = baseTroop.position
+	startPosition = baseTroop.global_position
 	pass
 
 func _process(delta):

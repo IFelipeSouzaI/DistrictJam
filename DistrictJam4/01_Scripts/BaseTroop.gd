@@ -4,11 +4,11 @@ export var Hp = 0
 export var Attack = 0
 export var Defense = 0
 export var AttackSpeed = 0
-export var TroopType = GameRef.TroopType.WARRIOR
+export(GameRef.TroopType) var TroopType = GameRef.TroopType.WARRIOR
 
 var troopStats
-
 var attackTimer = 0
+var onGrid = false;
 
 onready var hpBar = get_node("TroopBar")
 
@@ -31,7 +31,11 @@ func ShowUIInfo():
 
 func SetNewGridPos(var newPos):
 	position = newPos
-	EventSystem.emit_signal("OnTroopsOnGridUpdate", troopStats.TroopType, position)
+	if (!onGrid):
+		EventSystem.emit_signal("OnTroopPlacedOnGrid", troopStats.TroopType)
+		onGrid = true
+	else:
+		EventSystem.emit_signal("OnTroopsOnGridUpdate", troopStats.TroopType, position)
 	pass
 
 func ApplyAttackSpeedBuff(var value):
@@ -49,6 +53,6 @@ func TakeDamage(var value):
 	pass
 
 func Destroy():
-	EventSystem.emit_signal("OnTroopRemovedFromGrid")
+	EventSystem.emit_signal("OnTroopRemovedFromGrid", troopStats.TroopType, onGrid)
 	queue_free()
 	pass

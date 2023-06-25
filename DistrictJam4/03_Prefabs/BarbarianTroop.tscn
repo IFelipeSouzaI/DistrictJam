@@ -8,6 +8,7 @@ Hp = 10
 Attack = 2
 Defense = 2
 AttackSpeed = 1
+TroopType = 1
 
 [node name="Sprite" parent="." index="2"]
 scale = Vector2( 1, 1 )

@@ -7,6 +7,8 @@ var magePreload = preload("res://03_Prefabs/MageTroop.tscn")
 
 func _ready():
 	SpawnAllTroops()
+	EventSystem.connect("OnTroopPlacedOnGrid", self, "TroopRefil")
+	EventSystem.connect("OnTroopRemovedFromGrid", self, "TroopRemoved")
 	pass
 
 func SpawnAllTroops():
@@ -16,8 +18,22 @@ func SpawnAllTroops():
 	SpawnMage()
 	pass
 
-func TroopRefil():
-	
+func TroopRemoved(troopType, onGrid):
+	print("Remove one from the grid count")
+	if(!onGrid):
+		print("Refil asked")
+		TroopRefil(troopType)
+	pass
+
+func TroopRefil(troopType):
+	if (troopType == GameRef.TroopType.ARCHER):
+		SpawnArcher()
+	elif (troopType == GameRef.TroopType.WARRIOR):
+		SpawnWarrior()
+	elif (troopType == GameRef.TroopType.BARBARIAN):
+		SpawnBarbarian()
+	else:
+		SpawnMage()
 	pass
 
 func SpawnWarrior():

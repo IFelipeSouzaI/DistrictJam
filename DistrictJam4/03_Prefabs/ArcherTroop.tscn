@@ -8,6 +8,7 @@ Hp = 5
 Attack = 5
 Defense = 1
 AttackSpeed = 2
+TroopType = 2
 
 [node name="Sprite" parent="." index="2"]
 modulate = Color( 0.87451, 1, 0, 1 )

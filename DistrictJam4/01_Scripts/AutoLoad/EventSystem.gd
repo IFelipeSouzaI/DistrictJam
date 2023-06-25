@@ -1,4 +1,7 @@
 extends Node
 
-signal ApplyDamageToEnemies(value)
+signal OnApplyDamageToEnemies(value)
+
+signal OnTroopRemovedFromGrid()
+signal OnTroopsOnGridUpdate(troopType, position)
 

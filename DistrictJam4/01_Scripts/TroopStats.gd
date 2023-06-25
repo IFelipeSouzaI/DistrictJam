@@ -4,16 +4,16 @@ var Hp = 0
 var Attack = 0
 var Defense = 0
 var AttackSpeed = 0
-var TroopTipe = 0 # 0 for melee and 1 for ranged
+var TroopType
 
 var Shield = 0
 
-func _init(var newHp, var newAttack, var newDef, var newAttackSpeed, var newTroopTipe):
+func _init(var newHp, var newAttack, var newDef, var newAttackSpeed, var newTroopType):
 	Hp = newHp
 	Attack = newAttack
 	Defense = newDef
 	AttackSpeed = newAttackSpeed
-	TroopTipe = newTroopTipe
+	TroopType = newTroopType
 	pass
 
 func TakeDamage(var value):

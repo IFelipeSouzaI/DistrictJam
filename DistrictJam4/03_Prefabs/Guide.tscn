@@ -16,6 +16,7 @@ margin_bottom = 40.0
 script = ExtResource( 4 )
 
 [node name="Bg" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0.717647 )
 margin_right = 320.0
 margin_bottom = 356.0
 color = Color( 0, 0, 0, 1 )

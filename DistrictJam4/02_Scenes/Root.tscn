@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://03_Prefabs/WarriorTroop.tscn" type="PackedScene" id=1]
-[ext_resource path="res://03_Prefabs/BarbarianTroop.tscn" type="PackedScene" id=2]
 [ext_resource path="res://04_Sprites/Map/Base.png" type="Texture" id=3]
 [ext_resource path="res://04_Sprites/UI/ButtonBase_Normal.png" type="Texture" id=4]
 [ext_resource path="res://04_Sprites/UI/ButtonBase_Pressed.png" type="Texture" id=5]
@@ -26,11 +25,6 @@ texture = ExtResource( 3 )
 
 [node name="WarriorTroop" parent="Troops" instance=ExtResource( 1 )]
 position = Vector2( 273, 190 )
-TroopTipe = null
-
-[node name="BarbarianTroop" parent="Troops" instance=ExtResource( 2 )]
-position = Vector2( 272, 178 )
-TroopTipe = null
 
 [node name="UI" type="Control" parent="."]
 margin_left = 234.0

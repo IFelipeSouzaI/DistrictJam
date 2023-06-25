@@ -1,10 +1,25 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://03_Prefabs/WarriorTroop.tscn" type="PackedScene" id=1]
 [ext_resource path="res://03_Prefabs/BarbarianTroop.tscn" type="PackedScene" id=2]
 [ext_resource path="res://04_Sprites/Map/Base.png" type="Texture" id=3]
-[ext_resource path="res://03_Prefabs/ArcherTroop.tscn" type="PackedScene" id=4]
-[ext_resource path="res://03_Prefabs/MageTroop.tscn" type="PackedScene" id=5]
+[ext_resource path="res://04_Sprites/UI/ButtonBase_Normal.png" type="Texture" id=4]
+[ext_resource path="res://04_Sprites/UI/ButtonBase_Pressed.png" type="Texture" id=5]
+[ext_resource path="res://01_Scripts/UI/UI.gd" type="Script" id=6]
+[ext_resource path="res://07_Fontes/PixelSplitter-Bold.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://icon.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
+outline_size = 1
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 1
+font_data = ExtResource( 7 )
 
 [node name="Root" type="Node"]
 
@@ -18,10 +33,76 @@ texture = ExtResource( 3 )
 position = Vector2( 273, 190 )
 
 [node name="BarbarianTroop" parent="Troops" instance=ExtResource( 2 )]
-position = Vector2( 272, 146 )
+position = Vector2( 272, 178 )
 
-[node name="ArcherTroop" parent="Troops" instance=ExtResource( 4 )]
-position = Vector2( 272, 235 )
+[node name="UI" type="Control" parent="."]
+margin_left = 234.0
+margin_top = 10.0
+margin_right = 309.0
+margin_bottom = 35.0
+script = ExtResource( 6 )
 
-[node name="MageTroop" parent="Troops" instance=ExtResource( 5 )]
-position = Vector2( 272, 275 )
+[node name="StartBattle" type="TextureButton" parent="UI"]
+margin_right = 75.0
+margin_bottom = 25.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+
+[node name="Text" type="Label" parent="UI/StartBattle"]
+margin_left = 3.0
+margin_top = 7.0
+margin_right = 128.0
+margin_bottom = 27.0
+rect_scale = Vector2( 0.560002, 0.560002 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Start Battle"
+
+[node name="Guide" type="TextureButton" parent="UI"]
+margin_top = 28.0
+margin_right = 75.0
+margin_bottom = 53.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+
+[node name="Text" type="Label" parent="UI/Guide"]
+margin_left = 20.0
+margin_top = 7.0
+margin_right = 78.0
+margin_bottom = 27.0
+rect_scale = Vector2( 0.56, 0.56 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Guide"
+
+[node name="Guide" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Bg" type="ColorRect" parent="Guide"]
+margin_right = 320.0
+margin_bottom = 356.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Sprite" type="Sprite" parent="Guide"]
+position = Vector2( 159, 131 )
+texture = ExtResource( 8 )
+
+[node name="Return" type="TextureButton" parent="Guide"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+
+[node name="Text" type="Label" parent="Guide/Return"]
+margin_left = 8.0
+margin_top = 5.0
+margin_right = 79.0
+margin_bottom = 25.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Return"
+
+[connection signal="pressed" from="UI/StartBattle" to="UI" method="_on_StartBattle_pressed"]
+[connection signal="pressed" from="UI/Guide" to="UI" method="_on_Guide_pressed"]

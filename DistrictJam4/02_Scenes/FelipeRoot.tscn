@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://01_Scripts/GridController.gd" type="Script" id=1]
+[ext_resource path="res://04_Sprites/Map/Base.png" type="Texture" id=3]
+
+[node name="Root" type="Node"]
+
+[node name="Base" type="Sprite" parent="."]
+position = Vector2( 160, 178 )
+texture = ExtResource( 3 )
+
+[node name="Troops" type="Node" parent="."]
+script = ExtResource( 1 )

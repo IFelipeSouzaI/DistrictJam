@@ -31,7 +31,7 @@ func ShowUIInfo():
 
 func SetNewGridPos(var newPos):
 	position = newPos
-	EventSystem.emit_signal("OnTroopsOnGridUpdate", TroopStats.TroopType, position)
+	EventSystem.emit_signal("OnTroopsOnGridUpdate", troopStats.TroopType, position)
 	pass
 
 func ApplyAttackSpeedBuff(var value):

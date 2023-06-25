@@ -14,10 +14,6 @@ var yHeight = 12
 
 onready var baseTroop = get_parent()
 
-func _ready():
-	startPosition = baseTroop.global_position
-	pass
-
 func _process(delta):
 	if selected:
 		followMouse()
@@ -49,6 +45,7 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		if event.pressed:
 			selected = true
+			startPosition = baseTroop.position
 		else:
 			selected = false
 	pass

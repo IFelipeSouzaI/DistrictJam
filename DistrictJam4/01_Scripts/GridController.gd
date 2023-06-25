@@ -5,6 +5,8 @@ var barbarianPreload = preload("res://03_Prefabs/BarbarianTroop.tscn")
 var archerPreload = preload("res://03_Prefabs/ArcherTroop.tscn")
 var magePreload = preload("res://03_Prefabs/MageTroop.tscn")
 
+var yHeight = 12
+
 func _ready():
 	SpawnAllTroops()
 	EventSystem.connect("OnTroopPlacedOnGrid", self, "TroopRefil")
@@ -19,9 +21,7 @@ func SpawnAllTroops():
 	pass
 
 func TroopRemoved(troopType, onGrid):
-	print("Remove one from the grid count")
 	if(!onGrid):
-		print("Refil asked")
 		TroopRefil(troopType)
 	pass
 
@@ -39,23 +39,23 @@ func TroopRefil(troopType):
 func SpawnWarrior():
 	var warrior = warriorPreload.instance()
 	add_child(warrior)
-	warrior.position = Vector2(272,158)
+	warrior.position = Vector2(272,158-yHeight)
 	pass
 
 func SpawnBarbarian():
-	var warrior = barbarianPreload.instance()
-	add_child(warrior)
-	warrior.position = Vector2(272,198)
+	var barbarian = barbarianPreload.instance()
+	add_child(barbarian)
+	barbarian.position = Vector2(272,198-yHeight)
 	pass
 
 func SpawnArcher():
-	var warrior = archerPreload.instance()
-	add_child(warrior)
-	warrior.position = Vector2(272,238)
+	var archer = archerPreload.instance()
+	add_child(archer)
+	archer.position = Vector2(272,238-yHeight)
 	pass
 
 func SpawnMage():
-	var warrior = magePreload.instance()
-	add_child(warrior)
-	warrior.position = Vector2(272,278)
+	var mage = magePreload.instance()
+	add_child(mage)
+	mage.position = Vector2(272,278-yHeight)
 	pass

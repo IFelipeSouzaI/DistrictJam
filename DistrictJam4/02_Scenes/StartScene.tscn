@@ -1,0 +1,120 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://04_Sprites/UI/ButtonBase_Normal.png" type="Texture" id=1]
+[ext_resource path="res://04_Sprites/UI/ButtonBase_Pressed.png" type="Texture" id=2]
+[ext_resource path="res://04_Sprites/UI/linkedin.png" type="Texture" id=3]
+[ext_resource path="res://07_Fontes/PixelSplitter-Bold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://01_Scripts/StartScene.gd" type="Script" id=5]
+[ext_resource path="res://04_Sprites/UI/Bandeira.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 150
+font_data = ExtResource( 4 )
+
+[node name="StartScene" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Bg" type="Sprite" parent="."]
+
+[node name="StartBtn" type="TextureButton" parent="."]
+margin_left = 106.0
+margin_top = 138.0
+margin_right = 181.0
+margin_bottom = 163.0
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+
+[node name="Text" type="Label" parent="StartBtn"]
+margin_left = 9.0
+margin_top = 3.0
+margin_right = 65.0
+margin_bottom = 23.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Start"
+
+[node name="LinkedinLucas" type="ColorRect" parent="."]
+margin_left = 11.0
+margin_top = 278.0
+margin_right = 171.0
+margin_bottom = 330.0
+rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="LinkedinLucasBnt" type="Button" parent="LinkedinLucas"]
+margin_right = 1778.0
+margin_bottom = 578.0
+rect_scale = Vector2( 0.09, 0.09 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 3 )
+icon_align = 1
+
+[node name="Text" type="Label" parent="LinkedinLucas/LinkedinLucasBnt"]
+margin_left = 622.222
+margin_top = 111.111
+margin_right = 1167.22
+margin_bottom = 300.111
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Lucas"
+
+[node name="Icon" type="Sprite" parent="LinkedinLucas"]
+position = Vector2( 26.5, 26.5 )
+scale = Vector2( 0.0917969, 0.0917969 )
+texture = ExtResource( 3 )
+
+[node name="LinkedinFelipe" type="ColorRect" parent="."]
+margin_left = 11.0
+margin_top = 310.0
+margin_right = 172.0
+margin_bottom = 362.0
+rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="LinkedinFelipeBnt" type="Button" parent="LinkedinFelipe"]
+margin_right = 1782.0
+margin_bottom = 582.0
+rect_rotation = -0.121124
+rect_scale = Vector2( 0.09, 0.09 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 3 )
+icon_align = 1
+
+[node name="Text" type="Label" parent="LinkedinFelipe/LinkedinFelipeBnt"]
+margin_left = 577.542
+margin_top = 112.333
+margin_right = 1168.54
+margin_bottom = 301.333
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Felipe"
+
+[node name="Icon" type="Sprite" parent="LinkedinFelipe"]
+position = Vector2( 26.5, 26.5 )
+scale = Vector2( 0.0917969, 0.0917969 )
+texture = ExtResource( 3 )
+
+[node name="Bandeira" type="Sprite" parent="."]
+position = Vector2( 278, 317 )
+scale = Vector2( 0.016129, 0.0161654 )
+texture = ExtResource( 6 )
+
+[connection signal="pressed" from="StartBtn" to="." method="_on_StartBtn_pressed"]
+[connection signal="pressed" from="LinkedinLucas/LinkedinLucasBnt" to="." method="_on_LinkedinLucasBnt_pressed"]
+[connection signal="pressed" from="LinkedinFelipe/LinkedinFelipeBnt" to="." method="_on_LinkedinFelipeBnt_pressed"]

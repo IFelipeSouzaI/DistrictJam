@@ -10,7 +10,7 @@
 position = Vector2( 160, 178 )
 texture = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Slot" type="Sprite" parent="."]
 position = Vector2( 272, 299 )
 texture = ExtResource( 2 )
 hframes = 5
